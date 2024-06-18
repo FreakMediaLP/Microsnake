@@ -69,10 +69,6 @@ except (FileNotFoundError, KeyError):
     selectedMapSize = 2
     selectedSound = 0
 
-# Load high scores
-with open("highscores.json", "r") as file:
-    highScores = json.load(file)
-
 
 def setup():
     for button in buttons:
@@ -139,7 +135,8 @@ def setupSettingsMenu():
 def displaySettingsMenu():
     display.fill(0)
     settings = ["Diffic:", "Map Size:", "Sound:", "Start Game"]
-    values = [difficultyNames[selectedDifficulty], mapSizes[selectedMapSize], "Yes" if soundOptions[selectedSound] else "No", ""]
+    values = [difficultyNames[selectedDifficulty], mapSizes[selectedMapSize],
+              "Yes" if soundOptions[selectedSound] else "No", ""]
 
     for i, setting in enumerate(settings):
         if i == selectedSetting:
@@ -207,7 +204,6 @@ def loop():
                 if moveSnake():
                     gameState = GameState.GAMEOVER
                     drawGameover()
-                    saveHighScore(snake_length - STARTING_SNAKE_SIZE)
                     time.sleep(1)
                 drawMap()
                 drawScore()
@@ -302,7 +298,8 @@ def drawMap():
     offset_map_x = SCREEN_WIDTH - SNAKE_PIECE_SIZE * MAP_SIZE - 2
     offset_map_y = 2
 
-    display.rect(fruit[0] * SNAKE_PIECE_SIZE + offset_map_x, fruit[1] * SNAKE_PIECE_SIZE + offset_map_y, SNAKE_PIECE_SIZE,
+    display.rect(fruit[0] * SNAKE_PIECE_SIZE + offset_map_x, fruit[1] * SNAKE_PIECE_SIZE + offset_map_y,
+                 SNAKE_PIECE_SIZE,
                  SNAKE_PIECE_SIZE, 1)
     display.rect(offset_map_x - 2, 0, SNAKE_PIECE_SIZE * MAP_SIZE + 4, SNAKE_PIECE_SIZE * MAP_SIZE + 4, 1)
     for part in snake[:snake_length]:
@@ -324,25 +321,13 @@ def drawPressToStart():
 
 def drawGameover():
     display.fill(0)
-    display.text("GAME", 2, 10, 1)
-    display.text("OVER", 2, 20, 1)
-    display.text("High Scores:", 2, 30, 1)
-    for i, score in enumerate(highScores[:3]):
-        display.text(f"{i + 1}. {score}", 2, 40 + i * 10, 1)
-    display.show()
+    display.text("GAME", 2, 30, 1)
+    display.text("OVER", 2, 40, 1)
 
 
 def drawWin():
     display.text("YOU", 2, 30, 1)
     display.text("WON", 2, 40, 1)
-
-
-def saveHighScore(score):
-    global highScores
-    highScores.append(score)
-    highScores = sorted(highScores, reverse=True)[:3]
-    with open("highscores.json", 'w') as outfile:
-        json.dump(highScores, outfile)
 
 
 # Run the setup function
