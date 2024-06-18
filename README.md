@@ -1,1 +1,3 @@
-## Project for ESP32
+# Microsnake
+
+Snake Game for ESP32
