@@ -151,7 +151,7 @@ def drawPressToStartGame():
     display.fill(0)
     display.text("MICROSNAKE", 2, 10, 1)
     display.text("ON ESP32", 2, 20, 1)
-    display.text("BY Jan L", 2, 30, 1)
+    display.text("BY Joos_too", 2, 30, 1)
     display.text("PRESS BUTTON", 2, 50, 1)
     display.show()
     while not buttonPress():
