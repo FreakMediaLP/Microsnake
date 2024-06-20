@@ -11,7 +11,8 @@ SCREEN_HEIGHT = 64
 # Pin definitions
 NOTE_C6 = 1047
 OLED_RESET = 4
-buttonPins = [32, 25, 26, 27]  # LEFT, UP, RIGHT, DOWN
+SOUND_PIN = 21
+buttonPins = [33, 25, 26, 27]  # LEFT, UP, RIGHT, DOWN
 
 
 # Enums
@@ -42,7 +43,7 @@ fruit = [0, 0]
 moveTime = 0
 
 # Initialize I2C and display
-i2c = I2C(scl=Pin(22), sda=Pin(21))
+i2c = I2C(scl=Pin(23), sda=Pin(22))
 display = ssd1306.SSD1306_I2C(SCREEN_WIDTH, SCREEN_HEIGHT, i2c)
 
 # Initialize buttons
@@ -121,7 +122,7 @@ def setupSettingsMenu():
     SNAKE_MOVE_DELAY = difficultyLevels[selectedDifficulty]
     MAP_SIZE = mapSizes[selectedMapSize]
     STARTING_SNAKE_SIZE = startingSizes[selectedMapSize]
-    BUZZER_PIN = 19 if soundOptions[selectedSound] else None
+    BUZZER_PIN = SOUND_PIN if soundOptions[selectedSound] else None
 
     # Save selected settings
     with open("settings.json", 'w') as outfile:
@@ -315,7 +316,7 @@ def drawPressToStart():
     display.text("PRESS", 2, 10, 1)
     display.text("BUTTON", 2, 20, 1)
     display.text("TO", 2, 30, 1)
-    display.text("RESTART", 2, 40, 1)
+    display.text("START", 2, 40, 1)
     display.text("GAME!", 2, 50, 1)
 
 
