@@ -11,8 +11,8 @@ SCREEN_HEIGHT = 64
 # Pin definitions
 NOTE_C6 = 1047
 OLED_RESET = 4
-SOUND_PIN = 21
-buttonPins = [33, 25, 26, 27]  # LEFT, UP, RIGHT, DOWN
+SOUND_PIN = 14
+buttonPins = [25, 26, 27, 13]  # LEFT, UP, RIGHT, DOWN
 
 
 # Enums
@@ -43,7 +43,7 @@ fruit = [0, 0]
 moveTime = 0
 
 # Initialize I2C and display
-i2c = I2C(scl=Pin(23), sda=Pin(22))
+i2c = I2C(scl=Pin(32), sda=Pin(33))
 display = ssd1306.SSD1306_I2C(SCREEN_WIDTH, SCREEN_HEIGHT, i2c)
 
 # Initialize buttons
