@@ -30,7 +30,7 @@ Micropython Snake Game for ESP32 using SSD1306 OLED Screen ([Original C++ Versio
 
 ### 1. Flash Python Interpreter on EPS32
 
-Use a tool f.E. Thonny to flash the Micropython Interpreter to the ESP32
+Use a tool f.E. [Thonny](https://thonny.org/) to flash the Micropython Interpreter to the ESP32
 
 ### 2. Push Game Files on EPS32
 
