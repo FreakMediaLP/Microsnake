@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 19.2, "left": 100.84, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 31.94,
+      "left": 230.63,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn1",
+      "top": 132.2,
+      "left": -19.2,
+      "attrs": { "color": "black" }
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn2",
+      "top": 209,
+      "left": -19.2,
+      "attrs": { "color": "black" }
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn3",
+      "top": 170.6,
+      "left": -57.6,
+      "attrs": { "color": "black" }
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn4",
+      "top": 170.6,
+      "left": 19.2,
+      "attrs": { "color": "black" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 127.2,
+      "left": 232.2,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "oled1:GND", "esp:GND.2", "gray", [ "v-19.2", "h-67.2" ] ],
+    [ "esp:3V3", "oled1:VCC", "gold", [ "h0.15", "v-38.4", "h172.65" ] ],
+    [ "bz1:1", "esp:GND.3", "gray", [ "h-38.4", "v-105.6" ] ],
+    [ "esp:GND.1", "btn2:2.r", "gray", [ "h-9.45", "v48", "h-38.4", "v9.2" ] ],
+    [ "esp:GND.1", "btn4:2.r", "gray", [ "h-9.45", "v9.2" ] ],
+    [ "esp:GND.1", "btn3:2.r", "gray", [ "h-9.45", "v67.2", "h-125.6" ] ],
+    [ "esp:GND.1", "btn1:2.r", "gray", [ "h-47.85", "v-19.6" ] ],
+    [ "oled1:SCL", "esp:22", "purple", [ "v-38.4", "h-66.9", "v67.2" ] ],
+    [ "oled1:SDA", "esp:23", "magenta", [ "v-48", "h-86.33", "v67.2" ] ],
+    [ "esp:14", "btn2:1.r", "gold", [ "h-38.25", "v48" ] ],
+    [ "esp:27", "btn4:1.r", "red", [ "h-57.45" ] ],
+    [ "esp:26", "btn1:1.r", "blue", [ "h-95.85" ] ],
+    [ "esp:25", "btn3:1.r", "green", [ "v0", "h-134.25" ] ],
+    [ "bz1:2", "esp:19", "red", [ "v9.6", "h-58", "v-105.6" ] ]
+  ],
+  "dependencies": {}
+}
