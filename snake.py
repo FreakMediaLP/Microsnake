@@ -11,8 +11,8 @@ SCREEN_HEIGHT = 64
 # Pin definitions
 NOTE_C6 = 1047
 OLED_RESET = 4
-SOUND_PIN = 14
-buttonPins = [25, 26, 27, 13]  # LEFT, UP, RIGHT, DOWN
+SOUND_PIN = 13
+buttonPins = [25, 26, 27, 14]  # LEFT, UP, RIGHT, DOWN
 
 
 # Enums
