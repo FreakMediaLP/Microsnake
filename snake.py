@@ -57,18 +57,12 @@ startingSizes = [2, 3, 4, 5]  # Corresponding to map sizes
 soundOptions = [True, False]  # Yes, No
 
 # Selected settings indices
-try:
-    with open("settings.json", "r") as file:
-        data = json.load(file)
-        selectedSetting = data["selectedSetting"]
-        selectedDifficulty = data["selectedDifficulty"]
-        selectedMapSize = data["selectedMapSize"]
-        selectedSound = data["selectedSound"]
-except (FileNotFoundError, KeyError):
-    selectedSetting = 0
-    selectedDifficulty = 1
-    selectedMapSize = 2
-    selectedSound = 0
+with open("settings.json", "r") as file:
+    data = json.load(file)
+    selectedSetting = data["selectedSetting"]
+    selectedDifficulty = data["selectedDifficulty"]
+    selectedMapSize = data["selectedMapSize"]
+    selectedSound = data["selectedSound"]
 
 
 def setup():
@@ -267,8 +261,6 @@ def checkFruit():
             buzzer.duty_u16(32768)
             time.sleep(0.05)
             buzzer.duty_u16(0)
-        else:
-            print("No Sound Mode activated")
 
         if snake_length + 1 <= MAX_SNAKE_LENGTH:
             snake_length += 1
