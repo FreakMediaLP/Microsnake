@@ -5,8 +5,8 @@ Micropython Snake Game for ESP32 using SSD1306 OLED Screen ([Original C++ Versio
 
 ### 1. Connect Screen
 - Connect `VCC` from Screen with `3V3` on ESP32
-  - Connect `SCL` from Screen with `G32`
-  - Connect `SDA` from Screen with `G33`
+  - Connect `SCL` from Screen with `G22`
+  - Connect `SDA` from Screen with `G23`
 - Connect Ground (`GND`)
 
 ### 2. Connect Buttons
@@ -15,7 +15,7 @@ Micropython Snake Game for ESP32 using SSD1306 OLED Screen ([Original C++ Versio
    - LEFT with Pin `G25`
    - UP with Pin `G26`
    - RIGHT with Pin `G27`
-   - DOWN with Pin `G13`
+   - DOWN with Pin `G14`
 
 
 2. Connect second Pin on each Button witch Ground (`GND`)
@@ -23,7 +23,7 @@ Micropython Snake Game for ESP32 using SSD1306 OLED Screen ([Original C++ Versio
 
 ### 3. Connect Buzzer (optional)
 
-- Connect `+` from Buzzer with `G14`
+- Connect `+` from Buzzer with `G19`
 - Connect `-` from Buzzer with Ground (`GND`)
 
 ## Software Setup
