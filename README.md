@@ -26,6 +26,8 @@ Micropython Snake Game for ESP32 using SSD1306 OLED Screen ([Original C++ Versio
 - Connect `+` from Buzzer with `G19`
 - Connect `-` from Buzzer with Ground (`GND`)
 
+<img src="https://raw.githubusercontent.com/FreakMediaLP/Microsnake/main/circuit%20sketch.png" alt="Circuit Sketch" width="500">
+
 ## Software Setup
 
 ### 1. Flash Python Interpreter on EPS32
